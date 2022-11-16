@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import FoodBox from './components/FoodBox';
 import AddFoodForm from './components/AddFoodForm';
 import Search from './components/Search';
+import Toggle from './components/Toggle';
 
 function App() {
   const [foods, setFoods] = useState(foodsJSON);
@@ -20,7 +21,12 @@ function App() {
   return (
     <div className="App">
       <div>
-        <AddFoodForm foods={foods} setFoods={setFoods} />
+        <Toggle>
+          <div id="newpost">
+            <AddFoodForm foods={foods} setFoods={setFoods} />
+          </div>
+        </Toggle>
+
         <Search query={query} setQuery={setQuery} />
         <Divider>
           <h1>Food List</h1>
