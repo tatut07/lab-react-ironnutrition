@@ -11,6 +11,12 @@ function App() {
   const [foods, setFoods] = useState(foodsJSON);
   const [query, setQuery] = useState('');
   const uuid = require('uuid');
+  const deleteItem = (name) => {
+    let copyFoods = [...foods];
+    let foodsWithoutDeleted = copyFoods.filter((item) => item.name !== name);
+    setFoods(foodsWithoutDeleted);
+  };
+
   return (
     <div className="App">
       <div>
@@ -26,7 +32,12 @@ function App() {
           .map((food) => {
             return (
               <Row style={{ width: '100%' }} key={uuidv4()}>
-                <FoodBox food={food} />
+                <FoodBox
+                  food={food}
+                  foods={foods}
+                  setFoods={setFoods}
+                  deleteItem={deleteItem}
+                />
               </Row>
             );
           })}

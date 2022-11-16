@@ -1,8 +1,7 @@
 import { Card, Col, Button } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 
-function FoodBox({ food }) {
-  const uuid = require('uuid');
+function FoodBox({ food, deleteItem }) {
   return (
     <Col>
       <Card title={food.name} style={{ width: 230, height: 300, margin: 10 }}>
@@ -12,7 +11,10 @@ function FoodBox({ food }) {
         <p>
           <b>Total Calories: {food.calories * food.servings} </b> kcal
         </p>
-        <Button type="primary"> Delete </Button>
+        <Button onClick={() => deleteItem(food.name)} type="primary">
+          {' '}
+          Delete{' '}
+        </Button>
       </Card>
     </Col>
   );
