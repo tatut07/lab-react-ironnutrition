@@ -1,16 +1,18 @@
 import './App.css';
-import foods from './foods.json';
+import foodsJSON from './foods.json';
 import { useState } from 'react';
 import { Row, Divider, Button } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 import FoodBox from './components/FoodBox';
+import AddFoodForm from './components/AddFoodForm';
 
 function App() {
-  const [food, setFood] = useState(foods);
+  const [foods, setFoods] = useState(foodsJSON);
   const uuid = require('uuid');
   return (
     <div className="App">
       <div>
+        <AddFoodForm foods={foods} setFoods={setFoods} />
         <div>
           <h1>Food List</h1>
         </div>
