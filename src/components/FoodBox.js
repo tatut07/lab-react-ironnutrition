@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 function FoodBox({ food }) {
   const uuid = require('uuid');
   return (
-    <Col key={uuidv4()}>
+    <Col>
       <Card title={food.name} style={{ width: 230, height: 300, margin: 10 }}>
         <img src={food.image} height={60} alt="food" />
         <p>Calories: {food.calories}</p>
