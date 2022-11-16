@@ -16,20 +16,18 @@ function App() {
         </div>
         {foods.map((food) => {
           return (
-            <div key={uuidv4()}>
-              <p> {food.name} </p>
-              <img src={food.image} width="250px" />
-            </div>
+            <Row style={{ width: '100%' }}>
+              <FoodBox food={food} />
+            </Row>
           );
         })}
-        <FoodBox
+        {/* <FoodBox
           food={{
             name: 'Orange',
             calories: 85,
             image: 'https://i.imgur.com/abKGOcv.jpg',
             servings: 1,
-          }}
-        />
+          }} */}
       </div>
     </div>
   );
